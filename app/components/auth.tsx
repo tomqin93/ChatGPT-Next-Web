@@ -129,6 +129,7 @@ export function AuthPage() {
 function TopBanner() {
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [ctaUrl, setCtaUrl] = useState("https://example.com"); // P8131
   const isMobile = useMobileScreen();
   useEffect(() => {
     // 检查 localStorage 中是否有标记
@@ -156,6 +157,10 @@ function TopBanner() {
     storage.setItem("bannerDismissed", "true");
   };
 
+  const handleCtaClick = () => {
+    window.location.href = ctaUrl; // Pa778
+  };
+
   if (!isVisible) {
     return null;
   }
@@ -180,6 +185,12 @@ function TopBanner() {
             <Arrow style={{ marginLeft: "4px" }} />
           </a>
         </span>
+        <div className={styles["top-banner-message"]}>
+          New message: Check out our latest updates!
+        </div>
+        <button className={styles["top-banner-button"]} onClick={handleCtaClick}>
+          Learn More
+        </button>
       </div>
       {(isHovered || isMobile) && (
         <Delete className={styles["top-banner-close"]} onClick={handleClose} />
