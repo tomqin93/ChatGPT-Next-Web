@@ -38,6 +38,23 @@
       right: 48px;
       transform: translateY(-50%);
     }
+    .top-banner-message {
+      margin-left: 16px;
+      font-size: 16px;
+      color: var(--primary);
+    }
+    .top-banner-button {
+      margin-left: 16px;
+      padding: 8px 16px;
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
   }
 
   @media (max-width: 600px) {
